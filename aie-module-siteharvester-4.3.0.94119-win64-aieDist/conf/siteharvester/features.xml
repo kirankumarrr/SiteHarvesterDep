@@ -1,0 +1,16 @@
+
+<att:attivio xmlns:att="http://www.attivio.com/configuration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:f="http://www.attivio.com/configuration/features/core" xmlns:fsec="http://www.attivio.com/configuration/features/security" xmlns:spring="http://www.springframework.org/schema/beans" xsi:schemaLocation="http://www.attivio.com/configuration http://www.attivio.com/configuration/attivio-config.xsd                            http://www.attivio.com/configuration/features/core http://www.attivio.com/configuration/features/coreFeatures.xsd                            http://www.attivio.com/configuration/features/security http://www.attivio.com/configuration/features/securityFeatures.xsd                            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.attivio.com/configuration http://www.attivio.com/configuration/attivio-config.xsd">
+  <!--Copyright 2014 Attivio Inc., All rights reserved-->
+  <features>
+    <f:deployWebapp name="crawlerAdminWebapp" directory="webapps/siteharvester/heritrix-webui-2.0.1-aie.war" context-path="/crawler" nodeset="*">
+      <f:menuEntry label="Site Harvester Admin" blank="true"/>
+    </f:deployWebapp>
+  </features>
+  <beans>
+    <spring:bean name="siteHarvesterAdminService" class="com.attivio.siteharvester.connector.SiteHarvesterService">
+      <spring:property name="keepStatistics" value="14"/>
+      <!-- keep 14 days worth of crawl job statistics -->
+    </spring:bean>
+    <spring:bean name="siteHarvesterApi" class="com.attivio.shared.siteharvester.exposedapi.SiteHarvesterApiImpl"/>
+  </beans>
+</att:attivio>

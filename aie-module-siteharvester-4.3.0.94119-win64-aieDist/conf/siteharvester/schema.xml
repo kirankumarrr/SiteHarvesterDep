@@ -1,0 +1,120 @@
+<att:attivio
+	xmlns:att="http://www.attivio.com/configuration"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.attivio.com/configuration http://www.attivio.com/configuration/attivio-config.xsd">
+
+	<!--Copyright 2014 Attivio Inc., All rights reserved-->
+  <schema name="default" merge="true">
+    <fields>
+      <field name="hostname" type="string" indexed="true" stored="true" facet="true">
+        <properties>
+          <property name="index.tokenizer" value="alphanum" />
+        </properties>
+      </field>
+			<!-- the uri that was the referrer for the current document -->
+      <field name="referrer" type="string" indexed="true" stored="true" facet="false" joinable="true">
+        <properties>
+          <property name="index.tokenizer" value="alphanum" />
+        </properties>
+      </field>
+
+	<!-- FEED_DOC_URI -->
+	<field name="feeduri" type="string" indexed="true" stored="true" facet="true">
+	<properties>
+	  <property name="index.tokenizer" value="alphanum" />
+	</properties>
+	</field>
+	
+	<!-- FEED_DOC_TITLE -->
+	<field name="feedtitle" type="string" indexed="true" stored="true" facet="true">
+	<properties>
+	  <property name="index.tokenizer" value="alphanum" />
+	</properties>
+	</field>
+	
+	<!-- FEED_DOC_LINK -->
+	<field name="feedlink" type="string" indexed="true" stored="true" facet="true">
+	<properties>
+	  <property name="index.tokenizer" value="alphanum" />
+	</properties>
+	</field>
+	
+	<!-- FEED_DOC_COPYRIGHT -->
+	<field name="feedcopyright" type="string" indexed="true" stored="true" facet="true">
+	<properties>
+	  <property name="index.tokenizer" value="alphanum" />
+	</properties>
+	</field>
+	
+	<!-- FEED_DOC_DESCRIPTION -->
+	<field name="feeddescription" type="string" indexed="true" stored="true" facet="true">
+	<properties>
+	  <property name="index.tokenizer" value="alphanum" />
+	</properties>
+	</field>
+	
+	<!-- FEED_DOC_PUBLISHED_DATE -->
+	<field name="feedpublisheddate" type="string" indexed="true" stored="true" facet="true">
+	<properties>
+	  <property name="index.tokenizer" value="alphanum" />
+	</properties>
+	</field>
+	
+	<!-- FEED_DOC_AUTHOR -->
+	<field name="feedauthor" type="string" indexed="true" stored="true" facet="true">
+	<properties>
+	  <property name="index.tokenizer" value="alphanum" />
+	</properties>
+	</field>
+	
+	<!-- FEED_DOC_RSS_TYPE -->
+	<field name="feedtype" type="string" indexed="true" stored="true" facet="true">
+	<properties>
+	  <property name="index.tokenizer" value="alphanum" />
+	</properties>
+	</field>
+	
+	<!-- FEED_DOC_CATEGORY -->
+	<field name="feedcategory" type="string" indexed="true" stored="true" facet="true">
+	<properties>
+	  <property name="index.tokenizer" value="alphanum" />
+	</properties>
+	</field>
+
+			<!-- how the current document http execution was carried out -->
+      <field name="http.execution" type="string" indexed="true" stored="true" facet="true" >
+        <properties>
+          <property name="index.tokenizer" value="alphanum" />
+        </properties>
+      </field>
+
+			<!-- href of links with rel="canonical" in header -->
+      <field name="canonical.uri" type="string" indexed="true" stored="true" facet="false">
+        <properties>
+          <property name="index.tokenizer" value="alphanum" />
+        </properties>
+      </field>
+			<!--  in order to get http headers populated they must be enabled in the site harvester scanner. -->
+      <field name="*_httpheader" type="text" indexed="true" stored="true" />
+      
+      <!-- uncomment to track inbound links and redirects for each page, set joinable=true for web graph searching -->
+      <!-- 
+      <field name="inboundlinks" type="string" indexed="true" stored="true" joinable="false">
+        <properties>
+          <property name="index.tokenizer" value="alphanum" />
+        </properties>
+      </field>
+      <field name="redirectreferrers" type="string" indexed="true" stored="true" joinable="false">
+        <properties>
+          <property name="index.tokenizer" value="alphanum" />
+        </properties>
+      </field>
+      -->
+      <field name="duplicates" type="string" indexed="true" stored="true" joinable="false">
+        <properties>
+          <property name="index.tokenizer" value="alphanum" />
+        </properties>
+      </field>
+    </fields>
+  </schema>
+</att:attivio>
